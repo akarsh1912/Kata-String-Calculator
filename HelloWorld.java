@@ -3,20 +3,26 @@ import java.io.*;
 public class HelloWorld {
 	public static int Add(String numbers)
 	{
-		int sum =0;
 		String[] numberList = numbers.split("[,]", 0);
+		int local_Sum = 0;
+		
 		for(String num: numberList)
 		{
-			sum+=Integer.parseInt(num);
+			local_Sum+=Integer.parseInt(num);
 		}
-		return sum;
+		
+		return local_Sum;
 	}
 	
 	public static void main  (String args[]) throws IOException
     {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String num = br.readLine();
-		System.out.println(Add(num));
+        String num;
+        int sum =0;
+        while ((num = br.readLine()) != null) {
+        	sum = sum + Add(num);
+        	System.out.println(sum);
+        }
          
     }
 
